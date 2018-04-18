@@ -3,24 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>str</string>
+	<string>lbl</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/**
- &lt;#Description#&gt;
- */
-@property(nonatomic, copy) NSString *&lt;#name#&gt;;</string>
+	<string>- (UILabel *)&lt;#statusLabel#&gt;
+{
+    if (!_&lt;#statusLabel#&gt;)
+    {
+        _&lt;#statusLabel#&gt; = [UILabel labelWithColor:HEXCOLOR(0xA1A1A1) withSize:GTFixWidthFlaot(14) withText:@"· 未开始"];
+    }
+    return _&lt;#statusLabel#&gt;;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E32E4617-FF11-4B34-9522-E152CC5854F0</string>
+	<string>44C410D6-2EF8-46F2-91D1-60F4E962FD65</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>sting</string>
+	<string>label</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>string</string>
+	<string>label</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

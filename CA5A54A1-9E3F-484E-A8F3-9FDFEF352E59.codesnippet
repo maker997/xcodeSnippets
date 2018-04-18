@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>mar</string>
+	<string>wea</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>All</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//MARK: ====== &lt;#设置 UI#&gt; ======</string>
+	<string> __weak typeof (self) weakSelf = self;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>64C7C029-E112-42CD-81E9-A533FE14D4BF</string>
+	<string>CA5A54A1-9E3F-484E-A8F3-9FDFEF352E59</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>mark</string>
+	<string>weak</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>mark</string>
+	<string>weakSelf</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

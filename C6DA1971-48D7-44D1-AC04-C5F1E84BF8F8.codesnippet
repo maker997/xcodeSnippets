@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>creq</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark- 网络请求
+- (void)requestRefreshData
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"1" forKey:@"flag"];
+    [dict setObject:self.searchView.inputField.text forKey:@"keyword"];
+    
+    [SVProgressHUD showWithStatus:@"正在加载中"];
+    __weak typeof (self) weakSelf = self;
+    [API requestAppendKey:MainSearchListUrl params:dict success:^(NSDictionary *successCode) {
+        [SVProgressHUD dismiss];
+        ZDLog(@"%s---%d---%@",__func__,__LINE__,successCode);
+        NSDictionary *datas = successCode[@"datas"];
+        NSString *error = datas[@"error"];
+        NSString *totalPage = successCode[@"page_total"];
+        weakSelf.totalPage = totalPage;
+        if (error)
+        {
+            [self addNoDataViewWithTipText:error];
+            [weakSelf.dataSource removeAllObjects];
+        }else
+        {
+            [self hiddenNoDataView];
+            
+            NSArray *tempt = datas[@"goods_list"];
+            NSArray *tempModel = [LEOrderGoodsModel mj_objectArrayWithKeyValuesArray:tempt];
+            
+            if (weakSelf.page == 1) {
+                [weakSelf.dataSource removeAllObjects];
+                [weakSelf.dataSource addObjectsFromArray:tempModel];
+                
+            }else{
+                [weakSelf.dataSource addObjectsFromArray:tempModel];
+            }
+            
+        }
+        [weakSelf.collectionView reloadData];
+        
+    } falure:^(NSError *er) {
+        ZDLog(@"%s---%d---%@",__func__,__LINE__,er);
+        [SVProgressHUD dismiss];
+    }];
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C6DA1971-48D7-44D1-AC04-C5F1E84BF8F8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>collectionRequest</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -9,8 +9,10 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/* &lt;##&gt; */
-@property(nonatomic,assign)NSInteger &lt;##&gt;;</string>
+	<string>/**
+ &lt;#Description#&gt;
+ */
+@property (nonatomic, assign) &lt;##&gt; &lt;##&gt;;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>A3E57367-499F-48E4-BE3D-74FC554CB959</string>
 	<key>IDECodeSnippetLanguage</key>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>req</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark- Request
+- (void)loadData
+{
+    self.page = 1;
+    [self requestRefreshData];
+}
+- (void)requestRefreshData
+{
+    NSString *url = @"liveRoomList";
+    NSDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:[NSString stringWithFormat:@"%ld",self.page] forKey:@"page"];
+    
+    [SVProgressHUD showWithStatus:@"加载直播列表"];
+    __weak typeof (self) weakSelf = self;
+    [[NetTool shareInstance]postWithSession:url params:params resultBlock:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        [SVProgressHUD dismiss];
+        if (error)
+        {
+            [SVProgressHUD showErrorWithStatus:@"网络错误"];
+        }else
+        {
+            NSInteger retCode = [responseObject[@"retCode"] integerValue];
+            NSString *retInfo = responseObject[@"retInfo"];
+            if (retCode!= 0)
+            {
+                [SVProgressHUD showErrorWithStatus:retInfo];
+            }else
+            {
+                NSArray *tempModels = [TJLiveCourseModel mj_objectArrayWithKeyValuesArray:responseObject[@"retData"][@"result"]];
+                self.totalCount = responseObject[@"retData"][@"totalCount"];
+                if (weakSelf.page == 1) {
+                    [weakSelf.dataSource removeAllObjects];
+                    [weakSelf.dataSource addObjectsFromArray:tempModels];
+                    
+                }else{
+                    [weakSelf.dataSource addObjectsFromArray:tempModels];
+                }
+                [weakSelf.tableView reloadData];
+            }
+        }
+        NSLog(@"%s---%d---%@",__func__,__LINE__,responseObject);
+    }];
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>530DEB79-665D-4107-9E69-EF07586585B3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>request</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>request</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

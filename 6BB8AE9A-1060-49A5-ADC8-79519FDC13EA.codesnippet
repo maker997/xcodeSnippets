@@ -3,24 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>str</string>
+	<string>ima</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/**
- &lt;#Description#&gt;
- */
-@property(nonatomic, copy) NSString *&lt;#name#&gt;;</string>
+	<string>- (UIImageView *)&lt;#icon#&gt;
+{
+    if (!_&lt;#icon#&gt;)
+    {
+        _&lt;#icon#&gt; = [UIImageView imageViewWithName:@"error"];
+    }
+    return _&lt;#icon#&gt;;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E32E4617-FF11-4B34-9522-E152CC5854F0</string>
+	<string>6BB8AE9A-1060-49A5-ADC8-79519FDC13EA</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>sting</string>
+	<string>imageView</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>string</string>
+	<string>imageView</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

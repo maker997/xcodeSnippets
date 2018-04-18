@@ -9,12 +9,18 @@
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#pragma mark =================== 表格代理 ===================
+	<string>#pragma mark- tableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return &lt;#_dataSource.count#&gt;;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return &lt;#addressCell#&gt;;
+    }
+    return &lt;#addressCell#&gt;;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     &lt;#addressCell#&gt; *cell = [tableView dequeueReusableCellWithIdentifier:&lt;#addressCell#&gt; forIndexPath:indexPath];

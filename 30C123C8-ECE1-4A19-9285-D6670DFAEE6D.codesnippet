@@ -3,21 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>mar</string>
+	<string>line</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#pragma mark =================== &lt;#设置 UI#&gt; ===================</string>
+	<string>- (UIView *)bottomLineView
+{
+    if (!_bottomLineView) {
+        _bottomLineView = [[UIView alloc] init];
+        _bottomLineView.backgroundColor = SEPARATE_LINE_COLOR;
+    }
+    return _bottomLineView;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>41656C1A-7896-49D9-B399-41506C75EC89</string>
+	<string>30C123C8-ECE1-4A19-9285-D6670DFAEE6D</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>标记</string>
+	<string>botton</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>标记</string>
+	<string>bottomLine</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

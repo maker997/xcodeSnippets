@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>text</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UITextField *)&lt;#phoneField#&gt;
+{
+    if (!_&lt;#phoneField#&gt;) {
+        _&lt;#phoneField#&gt; = [UITextField textFieldWithBgColor:[UIColor whiteColor] placeHolder:@"手机号" delegate:self textColor:[AppStyleConfiguration fontBlack] font:[AppStyleConfiguration lightFont:15] keyboardType:UIKeyboardTypePhonePad];
+    }
+    return _&lt;#phoneField#&gt;;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>FF9F5F43-566C-4249-B94E-76EE684E9B78</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>textField</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>textField</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

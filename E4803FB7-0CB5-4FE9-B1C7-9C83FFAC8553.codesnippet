@@ -3,24 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>str</string>
+	<string>err</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>All</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/**
- &lt;#Description#&gt;
- */
-@property(nonatomic, copy) NSString *&lt;#name#&gt;;</string>
+	<string>id datas = successCode[@"datas"];
+        if ([datas isKindOfClass:[NSDictionary class]])
+        {
+            NSString *error = datas[@"error"];
+            if (error)
+            {
+                [SVProgressHUD showErrorWithStatus:error];
+            }
+        }else if ([datas isKindOfClass:[NSString class]])
+        {
+            [SVProgressHUD showSuccessWithStatus:datas];
+             [weakSelf.tableView reloadData];
+        }
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E32E4617-FF11-4B34-9522-E152CC5854F0</string>
+	<string>E4803FB7-0CB5-4FE9-B1C7-9C83FFAC8553</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>sting</string>
+	<string>error</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>string</string>
+	<string>error</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
